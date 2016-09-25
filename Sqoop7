@@ -1,0 +1,10 @@
+Sqoop Eval
+
+hduser@hduser-Lenovo-G50-70:/$ sqoop eval --connect jdbc:mysql://localhost:3306/empdetails --username root
+--password hadoop123 --query "select * from emp"
+
+Sqoop list tables 
+
+hduser@hduser-Lenovo-G50-70:/$ sqoop list-tables --connect jdbc:mysql://localhost:3306/empdetails --username root --password hadoop123
+
+
