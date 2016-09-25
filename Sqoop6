@@ -1,0 +1,14 @@
+For every new records in mysql to import those new records into our sqoop job
+
+1. Goto mysql enter some of the new records into the table
+
+2. Now type the below command 
+
+hduser@hduser-Lenovo-G50-70:/$ sqoop job --exec myjincrement
+
+hduser@hduser-Lenovo-G50-70:/$ hadoop fs -ls /webdb/sqjob1
+
+hduser@hduser-Lenovo-G50-70:/$ hadoop fs -cat /webdb/sqjob1/part-m-00000
+
+hduser@hduser-Lenovo-G50-70:/$ hadoop fs -cat /webdb/sqjob1/part-m-00001
+
