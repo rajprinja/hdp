@@ -1,0 +1,11 @@
+Import-all-tables from  a specific database from mysql to hdfs
+
+hduser@hduser-Lenovo-G50-70:/$ sqoop import-all-tables --connect jdbc:mysql://localhost:3306/compdb
+--username root --password hadoop123 --fields-terminated-by '\t' -m 1
+
+hduser@hduser-Lenovo-G50-70:/$ hadoop fs -ls
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ hadoop fs -ls company/
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ hadoop fs -cat company/part-m-00000
+
