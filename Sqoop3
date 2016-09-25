@@ -1,0 +1,17 @@
+Sqoop Incremental append without sqoop job
+
+hduser@hduser-Lenovo-G50-70:/$sqoop import --connect jdbc:mysql://localhost:3306/empdetails --username root
+--password hadoop123 --table emp --split-by eno --fields-terminated-by ',' --lines-terminated-by '\n'
+--target-dir /mysqoop/sq6 -m 2 --incremental append --check-column eno --last-value 103
+
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ hadoop fs -cat /mysqoop/sq6/part-m-00000
+
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ hadoop fs -cat /mysqoop/sq6/part-m-
+
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ hadoop fs -cat /mysqoop/sq6/part-m-00002
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ hadoop fs -cat /mysqoop/sq6/part-m-00003
+
