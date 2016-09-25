@@ -1,0 +1,48 @@
+Creating a table in default database of hive using sqoop create-hive-table
+
+Step 1. Create a table in mysql
+Step 2. Load data into the table
+Step 3. Import the data to hdfs using sqoop
+Step 4. Create a table in default database of hive using sqoop create-hive-table
+             command
+Step 5. Check whether the table has been created in default db
+Step 6. Load the data from hdfs to the hive table
+
+Step 1.Create table in mysql
+
+mysql > create table company(cname varchar(20),website   
+              varchar(50),email varchar(50),phone varchar(20),address
+              varchar(100),type varchar(50));
+
+Step 2.Load data into table
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ mysqlimport --fields-terminated-by=,
+--columns='cname,website,email,phone,address,type' --local -u root -p  compdb company.csv
+
+Step 3.import the data to hdfs using sqoop
+
+hduser@hduser-Lenovo-G50-70:/$  sqoop import --connect jdbc:mysql://localhost:3306/compdb
+--username root --password hadoop123 --table company --split-by address --fields-terminated-by ',' 
+--lines-terminated-by '\n' --target-dir /mysqoop/sqdata1 -m 2;
+
+Step 4.create a table in default database of hive using sqoop create-hive-table commands
+
+
+hduser@hduser-Lenovo-G50-70:/$ sqoop create-hive-table --connect jdbc:mysql://localhost:3306/compdb --username root
+--password hadoop123 --table company --fields-terminated-by ','  --hive-table comp
+
+Step 5.check whether the table has been created in default db
+
+
+Step 6.load the data from hdfs to the hive table
+
+Step 7. Retrive the data
+
+
+
+
+
+
+
+
+
