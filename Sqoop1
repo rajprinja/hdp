@@ -1,0 +1,24 @@
+* How to export data from hdfs to mysql using sqoop export
+
+Step 1: load data to hdfs 
+            
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ hadoop fs -put  comp.csv  /user
+Step 2:check whether our data loaded into our directory
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ hadoop fs -ls /user
+Step 3: create a table in mysql
+
+mysql > create table comp(cname varchar(50),website
+               varchar(50),email varchar(50),phone varchar(20),address
+               varchar(100),type varchar(50));
+
+Step 4 :
+open new terminal to export data from hdfs to mysql using sqoop
+
+hduser@hduser-Lenovo-G50-70:/usr/local/hadoop$ 
+sqoop export --connect jdbc:mysql://localhost:3306/compdb --username root --password hadoop123 --table comp
+--fields-terminated-by ',' --lines-terminated-by '\n' --export-dir /user/comp.csv -m 1;
+
+Step 5 :  Retrive the data 
+
+mysql > select * from comp;
