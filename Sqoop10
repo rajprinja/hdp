@@ -1,0 +1,30 @@
+Sqoop merge
+
+1.Create table in mysql
+
+mysql > create table stud (sno int,name varchar(20));
+
+2.Load data
+ 
+mysql > insert into table stud(sno,name) values(101,'raj');
+mysql > insert into table stud(sno,name) values(102,'sai);
+
+3.Retrive data
+
+mysql > select * from stud;
+
+4. Import the data into hdfs
+
+sqoop import –connect jdbc:mysql://localhost:3306/mydb –table stud –username root –password hadoop123 –target-dir /sqoop/studata -m 1
+
+5.update few records in stud table of mysql 
+
+mysql > update stud set sno=103 where name like “r%”;
+
+6.merge the updated  records into hdfs file using below command
+
+
+sqoop import –connect jdbc:mysql://localhost:3306/mydb –username root –password hadoop123 –table stud
+
+–incremental append –merge-key sno –check-column sno –target-dir /sqoop/studata -m 1
+
