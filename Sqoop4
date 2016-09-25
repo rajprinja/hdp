@@ -1,0 +1,23 @@
+Create a sqoop job and import the table from mysql
+
+1.Create a table in mysql and load the data
+
+2.For creating a sqoop job and importing data from mysql to hdfs Goto new terminal and type the below commands
+
+hduser@hduser-Lenovo-G50-70:/$hadoop fs -mkdir -p /webdb
+
+hduser@hduser-Lenovo-G50-70:/$ sqoop job --create myjob1 -- import --connect jdbc:mysql://localhost:3306/empdetails
+--username root --password hadoop123 --table emp --target-dir /webdb/sqjob -m 1
+
+hduser@hduser-Lenovo-G50-70:/$ sqoop job - -list
+
+hduser@hduser-Lenovo-G50-70:/$ sqoop job - -exec myjob1
+
+hduser@hduser-Lenovo-G50-70:/$ hadoop fs -ls /webdb
+
+hduser@hduser-Lenovo-G50-70:/$ hadoop fs -ls /webdb/sqjob
+
+hduser@hduser-Lenovo-G50-70:/$ hadoop fs -cat /webdb/sqjob/part-m-00000
+
+
+
