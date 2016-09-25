@@ -1,0 +1,11 @@
+Sqoop import with where clause
+
+hduser@hduser-Lenovo-G50-70:~$ sqoop import --connect jdbc:mysql://localhost/compdb --username root
+--password hadoop123 --table company --fields-terminated-by ',' --target-dir /mysqoop/sqwhere1 --where "address like 'A%'" -m 1
+
+hduser@hduser-Lenovo-G50-70:~$ hadoop fs -ls /mysqoop
+
+hduser@hduser-Lenovo-G50-70:~$ hadoop fs -ls /mysqoop/sqwhere1
+
+hduser@hduser-Lenovo-G50-70:~$ hadoop fs -cat /mysqoop/sqwhere1/part-m-00000
+
