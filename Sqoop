@@ -1,0 +1,23 @@
+Step by Step Session Approach for Sqoop
+
+ Sqoop Import
+
+ Sqoop Export
+
+ Import-all- tables
+
+ Sqoop Incremental append without sqoop job
+
+ Create a sqoop job and import the table from mysql
+
+ Create sqoop job for Sqoop incremental append
+
+ Sqoop Eval
+
+ Sqoop list tables
+
+ Sqoop import with where clause
+
+ Create a table in default database of hive using sqoop
+
+ Sqoop merge /
